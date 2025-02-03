@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fash Rental Mauritius | Car Rental Service</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Modern CSS with Variables and Animations */
+        :root {
+            --primary: #2A5C82;
+            --accent: #FF6B6B;
+            --dark: #2D3436;
+            --light: #F9F9F9;
+            --gradient: linear-gradient(135deg, #2A5C82 0%, #26A69A 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--gradient);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.932);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo img {
+    height: 45px; /* Adjust this to your desired size */
+    width: auto;
+}
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('images/underwater-waterfall-in-le-morne-brabant-mauritius-known-as-the-white-island.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Search Box */
+        .search-box {
+            background: rgba(19, 1, 1, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+            margin-top: 2rem;
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 1rem 1rem 1rem 2.5rem;
+            border: 2px solid #161518;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(42,92,130,0.2);
+            outline: none;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: rgb(1, 10, 63);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+
+        /* Car Fleet Section */
+        .car-fleet {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .car-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.1);
+        }
+
+        .car-details {
+            padding: 1.5rem;
+        }
+
+        .car-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .car-price {
+            color: var(--accent);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .car-features {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .car-features li {
+            background: rgba(42,92,130,0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            background: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .search-box {
+                padding: 1.5rem;
+            }
+
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-car"></i> 
+                FASH RENTAL 
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#fleet">Our Fleet</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content animate">
+            <h1>SSR AIRPORT | FLIC EN FLAC | TAMARIN | GRAND BAIE MAURTIUS</h1>
+            <div class="search-box">
+                <form class="search-form">
+                    <div class="form-group">
+                        <i class="fas fa-calendar-alt">
+                        </i>
+                        <input type="date" id="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="endDate" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="deliveryLocation" placeholder="Enter delivery location" required>
+                        <div id="map"></div>
+                    </div>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-search"></i>
+                        Search Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="car-fleet" id="fleet">
+        <div class="section-title animate">
+            <h2>Our Reliable and Affordable Fleets</h2>
+            <p>Choose from our selection of vehicles</p>
+        </div>
+        <div class="cars-grid">
+            <div class="car-card animate">
+                <div class="car-image">
+                    <img src="images/typhoon-silver_12.png" alt="Hyundai Grand i10">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title">Hyundai Grand i10</h3>
+                    <div class="car-price">EUR 25/day</div>
+                    <ul class="car-features">
+                        <li>Automatic</li>
+                        <li>Air Conditioning</li>
+                        <li>Unlimited Mileage</li>
+                        <li>No Deposit</li>
+                    </ul>
+                    <button class="btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card animate">
+                <div class="car-image">
+                    <img src="images/GAZ_da5dd42dd0a44ebdb9afa478a6c26376-1779173479.jpg" alt="Hyundai Grand i10 Sedan">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title">Hyundai Grand i10 Sedan</h3>
+                    <div class="car-price">EUR 25/day</div>
+                    <ul class="car-features">
+                        <li>Automatic</li>
+                        <li>Air Conditioning</li>
+                        <li>Unlimited Mileage</li>
+                        <li>No Deposit</li>
+                    </ul>
+                    <button class="btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card animate">
+                <div class="car-image">
+                    <img src="images/SS1.jpg" alt="Suzuki Swift">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title">Suzuki Swift</h3>
+                    <div class="car-price">EUR 30/day</div>
+                    <ul class="car-features">
+                        <li>Automatic</li>
+                        <li>Air Conditioning</li>
+                        <li>Unlimited Mileage</li>
+                        <li>No Deposit</li>
+                    </ul>
+                    <button class="btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card animate">
+                <div class="car-image">
+                    <img src="images/image5hhh.png" alt="Hyundai Grand i10 New Version">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title">Hyundai Grand i10 New Version</h3>
+                    <div class="car-price">EUR 34/day</div>
+                    <ul class="car-features">
+                        <li>Automatic</li>
+                        <li>Air Conditioning (Back)</li>
+                        <li>Unlimited Mileage</li>
+                        <li>No Deposit</li>
+                    </ul>
+                    <button class="btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card animate">
+                <div class="car-image">
+                    <img src="images/image53.png" alt="Suzuki Swift GLX">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title">Suzuki Swift GLX</h3>
+                    <div class="car-price">EUR 37/day</div>
+                    <ul class="car-features">
+                        <li>Automatic</li>
+                        <li>Air Conditioning</li>
+                        <li>Unlimited Mileage</li>
+                        <li>No Deposit</li>
+                    </ul>
+                    <button class="btn">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card animate">
+                <div class="car-image">
+                    <img src="images/nissan note.jpg" alt="Nissan Note Hybrid">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title">Nissan Note Hybrid</h3>
+                    <div class="car-price">EUR 40/day</div>
+                    <ul class="car-features">
+                        <li>Automatic</li>
+                        <li>Air Conditioning</li>
+                        <li>Unlimited Mileage</li>
+                        <li>No Deposit</li>
+                    </ul>
+                    <button class="btn">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-title animate">
+            <h2>Why Choose Us</h2>
+            <p>Discover the Fash Rental advantage</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate">
+                <i class="fas fa-ban feature-icon"></i>
+        <h3>NO DEPOSIT FEE REQUIRED </h3>
+        <i class="fas fa-infinity feature-icon"></i>
+    <h3>PLUS UNLIMITED DRIVING MILEAGE</h3>
+                
+            </div>
+            <div class="feature-card animate">
+                <i class="fas fa-map-marker-alt feature-icon"></i>
+                <h3>Island-wide Coverage</h3>
+               <p>Free Delivery & Pickup at SSR Airport/Flic en Flac/Tamarin</p>
+                <p>15+ locations Delievery & Pickup (Only fuel Fee Charged)</p>
+            </div>
+            <div class="feature-card animate">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Full Insurance</h3>
+                <p>Premium Comprehensive coverage included</p>
+            </div>
+    <div class="feature-card animate">
+        <i class="fas fa-clock feature-icon"></i>
+                <h3>Support</h3>
+                <p>ASSISSTANCE IN ENGLISH & FRENCH</p>
+                <P>Plus 24/7 Towing Assistance</P>
+    </div>
+</div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +230 123 4567</p>
+                <p><i class="fas fa-envelope"></i> hello@fashrental.mu</p>
+                <p><i class="fas fa-map-marker-alt"></i> Royal Road, Port Louis</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+                    <div class="footer-section">
+                        <h3>Newsletter</h3>
+                        <input type="email" placeholder="Enter your email" class="btn">
+                        <button class="btn">Subscribe</button>
